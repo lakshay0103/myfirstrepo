@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!-- saved from url=(0231)https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&mode=light -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base target="_blank">--><base href="." target="_blank"><style type="text/css">svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style><link rel="icon" href="https://media.geeksforgeeks.org/img-practice/favicon-1600291663.png"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions."><meta property="og:image" content="https://media.geeksforgeeks.org/img-practice/gfg_200X200.png"><meta property="og:image:alt" content="https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="200"><meta property="og:image:height" content="200"><link rel="apple-touch-icon" href="https://media.geeksforgeeks.org/img-practice/gfg_200X200.png"><link rel="manifest" href="https://discuss.geeksforgeeks.org/manifest.json"><title>Discuss | GeeksforGeeks | A computer science portal for geeks</title><link href="./5.27dd871e.chunk.css" rel="stylesheet"><link href="./main.8e00513e.chunk.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="./0.f4c56af9.chunk.css"><script charset="utf-8" src="./0.911b0286.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./1.bf61578f.chunk.css"><script charset="utf-8" src="./1.52154e6e.chunk.js.download"></script><script charset="utf-8" src="./2.b54af5a7.chunk.js.download"></script><script charset="utf-8" src="./9.1e9abe1f.chunk.js.download"></script><script referrerpolicy="origin" type="application/javascript" id="tiny-script_28736420211679556123617" src="./tinymce.min.js.download"></script><link rel="stylesheet" type="text/css" id="mce-u0" referrerpolicy="origin" href="./skin.min.css"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><div class="App"><section><section id="comment-sys"><section class="ml-15 mr-15"><div class="px-0 mb-3"><div class="d-flex mx-0"><div class="col-12 px-0"><h5 class="float-left font-weight-bold headingStyle sofia-pro">Discussions<span class="text-secondary ml-2 h6"> ( 685 Threads )</span><a target="_blank" href="https://discuss.geeksforgeeks.org/dashboard?utm-source=practice&amp;utm-campaign=prob700166&amp;utm-event=comment-thread"><img class="ml-2 pb-1 external-link-icon" alt="Click to open dashboard" src="./external_link-1629374313.svg"></a></h5><div class="float-right"><div class="dropdown"><button class="sofia-pro btn btn-sm dropdown-toggle font-weight-bold sofia-pro" type="button" id="filter-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Most Recent</button><div class="dropdown-menu dropdown-menu-right" aria-labelledby="filter-options"><button class="dropdown-item font-weight-bold sofia-pro">Most Recent</button><button class="dropdown-item font-weight-bold sofia-pro">Least Recent</button><button class="dropdown-item font-weight-bold sofia-pro">Most Rated</button></div></div></div><div class="float-right"></div></div></div></div></section><div><section><div class="mt-3 ml-15 mr-15"><div style="display: block;"><textarea id="tiny-react_61966088421679556124468" style="display: none;" aria-hidden="true"></textarea><div role="application" class="tox tox-tinymce" aria-disabled="false" style="visibility: hidden; height: 100px;" data-mce-style="visibility: hidden; height: 100px;"><div class="tox-editor-container"><div data-alloy-vertical-dir="toptobottom" class="tox-editor-header"><div role="group" class="tox-toolbar-overlord" aria-disabled="false"><div role="group" class="tox-toolbar__primary"><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Heading format" title="Heading format" aria-haspopup="true" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-expanded="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path fill-rule="evenodd" d="M17 5a1 1 0 010 2h-4v11a1 1 0 01-2 0V7H7a1 1 0 110-2h10z"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Bold" title="Bold" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M7.8 19c-.3 0-.5 0-.6-.2l-.2-.5V5.7c0-.2 0-.4.2-.5l.6-.2h5c1.5 0 2.7.3 3.5 1 .7.6 1.1 1.4 1.1 2.5a3 3 0 01-.6 1.9c-.4.6-1 1-1.6 1.2.4.1.9.3 1.3.6s.8.7 1 1.2c.4.4.5 1 .5 1.6 0 1.3-.4 2.3-1.3 3-.8.7-2.1 1-3.8 1H7.8zm5-8.3c.6 0 1.2-.1 1.6-.5.4-.3.6-.7.6-1.3 0-1.1-.8-1.7-2.3-1.7H9.3v3.5h3.4zm.5 6c.7 0 1.3-.1 1.7-.4.4-.4.6-.9.6-1.5s-.2-1-.7-1.4c-.4-.3-1-.4-2-.4H9.4v3.8h4z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Italic" title="Italic" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M16.7 4.7l-.1.9h-.3c-.6 0-1 0-1.4.3-.3.3-.4.6-.5 1.1l-2.1 9.8v.6c0 .5.4.8 1.4.8h.2l-.2.8H8l.2-.8h.2c1.1 0 1.8-.5 2-1.5l2-9.8.1-.5c0-.6-.4-.8-1.4-.8h-.3l.2-.9h5.8z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Underline" title="Underline" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M16 5c.6 0 1 .4 1 1v5.5a4 4 0 01-.4 1.8l-1 1.4a5.3 5.3 0 01-5.5 1 5 5 0 01-1.6-1c-.5-.4-.8-.9-1.1-1.4a4 4 0 01-.4-1.8V6c0-.6.4-1 1-1s1 .4 1 1v5.5c0 .3 0 .6.2 1l.6.7a3.3 3.3 0 002.2.8 3.4 3.4 0 002.2-.8c.3-.2.4-.5.6-.8l.2-.9V6c0-.6.4-1 1-1zM8 17h8c.6 0 1 .4 1 1s-.4 1-1 1H8a1 1 0 010-2z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Strikethrough" title="Strikethrough" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><g fill-rule="evenodd"><path d="M15.6 8.5c-.5-.7-1-1.1-1.3-1.3-.6-.4-1.3-.6-2-.6-2.7 0-2.8 1.7-2.8 2.1 0 1.6 1.8 2 3.2 2.3 4.4.9 4.6 2.8 4.6 3.9 0 1.4-.7 4.1-5 4.1A6.2 6.2 0 017 16.4l1.5-1.1c.4.6 1.6 2 3.7 2 1.6 0 2.5-.4 3-1.2.4-.8.3-2-.8-2.6-.7-.4-1.6-.7-2.9-1-1-.2-3.9-.8-3.9-3.6C7.6 6 10.3 5 12.4 5c2.9 0 4.2 1.6 4.7 2.4l-1.5 1.1z"></path><path d="M5 11h14a1 1 0 010 2H5a1 1 0 010-2z" fill-rule="nonzero"></path></g></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Insert/edit link" title="Insert/edit link" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M6.2 12.3a1 1 0 011.4 1.4l-2.1 2a2 2 0 102.7 2.8l4.8-4.8a1 1 0 000-1.4 1 1 0 111.4-1.3 2.9 2.9 0 010 4L9.6 20a3.9 3.9 0 01-5.5-5.5l2-2zm11.6-.6a1 1 0 01-1.4-1.4l2-2a2 2 0 10-2.6-2.8L11 10.3a1 1 0 000 1.4A1 1 0 119.6 13a2.9 2.9 0 010-4L14.4 4a3.9 3.9 0 015.5 5.5l-2 2z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Insert/edit code sample" title="Insert/edit code sample" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="26" focusable="false"><path d="M7.1 11a2.8 2.8 0 01-.8 2 2.8 2.8 0 01.8 2v1.7c0 .3.1.6.4.8.2.3.5.4.8.4.3 0 .4.2.4.4v.8c0 .2-.1.4-.4.4-.7 0-1.4-.3-2-.8-.5-.6-.8-1.3-.8-2V15c0-.3-.1-.6-.4-.8-.2-.3-.5-.4-.8-.4a.4.4 0 01-.4-.4v-.8c0-.2.2-.4.4-.4.3 0 .6-.1.8-.4.3-.2.4-.5.4-.8V9.3c0-.7.3-1.4.8-2 .6-.5 1.3-.8 2-.8.3 0 .4.2.4.4v.8c0 .2-.1.4-.4.4-.3 0-.6.1-.8.4-.3.2-.4.5-.4.8V11zm9.8 0V9.3c0-.3-.1-.6-.4-.8-.2-.3-.5-.4-.8-.4a.4.4 0 01-.4-.4V7c0-.2.1-.4.4-.4.7 0 1.4.3 2 .8.5.6.8 1.3.8 2V11c0 .3.1.6.4.8.2.3.5.4.8.4.2 0 .4.2.4.4v.8c0 .2-.2.4-.4.4-.3 0-.6.1-.8.4-.3.2-.4.5-.4.8v1.7c0 .7-.3 1.4-.8 2-.6.5-1.3.8-2 .8a.4.4 0 01-.4-.4v-.8c0-.2.1-.4.4-.4.3 0 .6-.1.8-.4.3-.2.4-.5.4-.8V15a2.8 2.8 0 01.8-2 2.8 2.8 0 01-.8-2zm-3.3-.4c0 .4-.1.8-.5 1.1-.3.3-.7.5-1.1.5-.4 0-.8-.2-1.1-.5-.4-.3-.5-.7-.5-1.1 0-.5.1-.9.5-1.2.3-.3.7-.4 1.1-.4.4 0 .8.1 1.1.4.4.3.5.7.5 1.2zM12 13c.4 0 .8.1 1.1.5.4.3.5.7.5 1.1 0 1-.1 1.6-.5 2a3 3 0 01-1.1 1c-.4.3-.8.4-1.1.4a.5.5 0 01-.5-.5V17a3 3 0 001-.2l.6-.6c-.6 0-1-.2-1.3-.5-.2-.3-.3-.7-.3-1 0-.5.1-1 .5-1.2.3-.4.7-.5 1.1-.5z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Insert Image" title="Insert Image" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M5 15.7l3.3-3.2c.3-.3.7-.3 1 0L12 15l4.1-4c.3-.4.8-.4 1 0l2 1.9V5H5v10.7zM5 18V19h3l2.8-2.9-2-2L5 17.9zm14-3l-2.5-2.4-6.4 6.5H19v-4zM4 3h16c.6 0 1 .4 1 1v16c0 .6-.4 1-1 1H4a1 1 0 01-1-1V4c0-.6.4-1 1-1zm6 8a2 2 0 100-4 2 2 0 000 4z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Blockquote" title="Blockquote" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M7.5 17h.9c.4 0 .7-.2.9-.6L11 13V8c0-.6-.4-1-1-1H6a1 1 0 00-1 1v4c0 .6.4 1 1 1h2l-1.3 2.7a1 1 0 00.8 1.3zm8 0h.9c.4 0 .7-.2.9-.6L19 13V8c0-.6-.4-1-1-1h-4a1 1 0 00-1 1v4c0 .6.4 1 1 1h2l-1.3 2.7a1 1 0 00.8 1.3z" fill-rule="nonzero"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Bullet list" title="Bullet list" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M11 5h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm0 6h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm0 6h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zM4.5 6c0-.4.1-.8.4-1 .3-.4.7-.5 1.1-.5.4 0 .8.1 1 .4.4.3.5.7.5 1.1 0 .4-.1.8-.4 1-.3.4-.7.5-1.1.5-.4 0-.8-.1-1-.4-.4-.3-.5-.7-.5-1.1zm0 6c0-.4.1-.8.4-1 .3-.4.7-.5 1.1-.5.4 0 .8.1 1 .4.4.3.5.7.5 1.1 0 .4-.1.8-.4 1-.3.4-.7.5-1.1.5-.4 0-.8-.1-1-.4-.4-.3-.5-.7-.5-1.1zm0 6c0-.4.1-.8.4-1 .3-.4.7-.5 1.1-.5.4 0 .8.1 1 .4.4.3.5.7.5 1.1 0 .4-.1.8-.4 1-.3.4-.7.5-1.1.5-.4 0-.8-.1-1-.4-.4-.3-.5-.7-.5-1.1z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Numbered list" title="Numbered list" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M10 17h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm0-6h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm0-6h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 110-2zM6 4v3.5c0 .3-.2.5-.5.5a.5.5 0 01-.5-.5V5h-.5a.5.5 0 010-1H6zm-1 8.8l.2.2h1.3c.3 0 .5.2.5.5s-.2.5-.5.5H4.9a1 1 0 01-.9-1V13c0-.4.3-.8.6-1l1.2-.4.2-.3a.2.2 0 00-.2-.2H4.5a.5.5 0 01-.5-.5c0-.3.2-.5.5-.5h1.6c.5 0 .9.4.9 1v.1c0 .4-.3.8-.6 1l-1.2.4-.2.3zM7 17v2c0 .6-.4 1-1 1H4.5a.5.5 0 010-1h1.2c.2 0 .3-.1.3-.3 0-.2-.1-.3-.3-.3H4.4a.4.4 0 110-.8h1.3c.2 0 .3-.1.3-.3 0-.2-.1-.3-.3-.3H4.5a.5.5 0 110-1H6c.6 0 1 .4 1 1z" fill-rule="evenodd"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Undo" title="Undo" type="button" tabindex="-1" class="tox-tbtn tox-tbtn--disabled" aria-disabled="true"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M6.4 8H12c3.7 0 6.2 2 6.8 5.1.6 2.7-.4 5.6-2.3 6.8a1 1 0 01-1-1.8c1.1-.6 1.8-2.7 1.4-4.6-.5-2.1-2.1-3.5-4.9-3.5H6.4l3.3 3.3a1 1 0 11-1.4 1.4l-5-5a1 1 0 010-1.4l5-5a1 1 0 011.4 1.4L6.4 8z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Redo" title="Redo" type="button" tabindex="-1" class="tox-tbtn tox-tbtn--disabled" aria-disabled="true"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M17.6 10H12c-2.8 0-4.4 1.4-4.9 3.5-.4 2 .3 4 1.4 4.6a1 1 0 11-1 1.8c-2-1.2-2.9-4.1-2.3-6.8.6-3 3-5.1 6.8-5.1h5.6l-3.3-3.3a1 1 0 111.4-1.4l5 5a1 1 0 010 1.4l-5 5a1 1 0 01-1.4-1.4l3.3-3.3z" fill-rule="nonzero"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button title="Table" aria-label="Table" aria-haspopup="true" type="button" tabindex="-1" data-alloy-tabstop="true" unselectable="on" class="tox-tbtn tox-tbtn--select" aria-expanded="false" style="user-select: none;"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path fill-rule="nonzero" d="M19 4a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6c0-1.1.9-2 2-2h14zM5 14v4h6v-4H5zm14 0h-6v4h6v-4zm0-6h-6v4h6V8zM5 12h6V8H5v4z"></path></svg></span><div class="tox-tbtn__select-chevron"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></div></button></div></div></div><div class="tox-anchorbar"></div></div><div class="tox-sidebar-wrap"><div class="tox-edit-area"><iframe id="tiny-react_61966088421679556124468_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area" class="tox-edit-area__iframe" src="./saved_resource(1).html"></iframe></div><div role="complementary" class="tox-sidebar"><div data-alloy-tabstop="true" tabindex="-1" class="tox-sidebar__slider tox-sidebar--sliding-closed" style="width: 0px;"><div class="tox-sidebar__pane-container"></div></div></div></div></div><div aria-hidden="true" class="tox-throbber" style="display: none;"></div></div></div><div class="d-flex mt-3 mx-0"><div class="col-sm-6 d-none d-sm-block p-0"><div class="d-flex align-items-center mx-0"><div class=""><img class="rounded-circle img-fluid" src="./user_web-1598433228.svg" alt="avatar" style="width: 36px; height: 36px;"></div><div class="ml-2 curr-user-name"><span class="text-secondary sofia-pro float-left" style="font-family: urw-din; font-size: 16px; color: rgb(38, 41, 50);">Commenting as: vanshikakuyw6f </span></div></div></div><div class="col-sm-6 px-0"><button disabled="" class="btn btn-sm btn-success float-right sofia-pro h-100" style="background-color: rgb(47, 141, 70);">Submit</button></div></div></div></section><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/kisu/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">kisu</a><span class="text-black-50 ml-2 timeStyle">2 days ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>class Solution{<br>&nbsp; &nbsp; public:<br>&nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; pair&lt;bool,int&gt; find(Node * root){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt; p=make_pair(true,0);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return p;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt; left=find(root-&gt;left);<br>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt; right=find(root-&gt;right);<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; bool leftans=left.first;<br>&nbsp; &nbsp; &nbsp; &nbsp; bool rightans=right.first;<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; bool diff=abs(left.second-right.second)&lt;=1;<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt; ans;<br>&nbsp; &nbsp; &nbsp; &nbsp; ans.second=max(left.second,right.second)+1;<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; if(leftans and rightans and diff){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.first=true;<br>&nbsp; &nbsp; &nbsp; &nbsp; }else<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.first=false;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; return ans;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.<br>&nbsp; &nbsp; bool isBalanced(Node *root)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; return find(root).first;<br>&nbsp; &nbsp; }<br>};</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/d806add6114460e6d7480fb2be85cfa2"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_d806add6114460e6d7480fb2be85cfa2" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_d806add6114460e6d7480fb2be85cfa2"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+1</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/ankit_s/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">ankit_s</a><span class="text-black-50 ml-2 timeStyle">1 week ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><pre class="language-cpp"><code>int Balanced(Node*root){
+        if(root==NULL){
+            return false;
+        }
+        int lh=Balanced(root-&gt;left);
+            if(lh==-1) {return-1;
+        }
+        int rh=Balanced(root-&gt;right);
+            if(rh==-1) {return -1;
+        }
+        if(abs(lh-rh)&gt;1)return -1;
+        else
+        return max(lh,rh)+1;
+    }
+    bool isBalanced(Node *root)
+    {
+        //  Your Code here
+        if(Balanced(root)==-1)
+        return false;
+        else 
+        return true;
+    }</code></pre>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/add68019597c28688b867923313be2d4"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_add68019597c28688b867923313be2d4" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_add68019597c28688b867923313be2d4"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+1</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/harshitagarwalsmt/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">harshitagarwalsmt</a><span class="text-black-50 ml-2 timeStyle">3 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>VERY EASY SOLUTION --&nbsp;</p>
+<p>int height(Node *root,int &amp;f){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(!root) return 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int l=height(root-&gt;left,f);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int r=height(root-&gt;right,f);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(abs(l-r)&gt;1) f=0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return max(l,r)+1;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int f=1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; height(root,f);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return f;</p>
+<p>&nbsp; &nbsp; }</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/c36cb6108d70928bc3cbf8cd2711f321"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_c36cb6108d70928bc3cbf8cd2711f321" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_c36cb6108d70928bc3cbf8cd2711f321"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/rohitramteke1/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">rohitramteke1</a><span class="text-black-50 ml-2 timeStyle">3 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><h1>MOST EASY</h1>
+<h1>TC: O(N) + SC: O(H)</h1>
+<pre class="language-cpp"><code>    int heightOfTree(Node *root) {
+        if(root == NULL)
+            return 0;
+        int lh = heightOfTree(root-&gt;left);
+        int rh = heightOfTree(root-&gt;right);
+        
+        // Conditions for not having balanced binary tree
+        if(lh == -1 || rh == -1 || abs(lh-rh) &gt; 1)
+            return -1;
+        if( abs(lh-rh) &gt; 1 )
+            return -1;
+        
+        return 1 + max(lh , rh);
+    }
+    bool isBalanced(Node *root)
+    {
+        //  Your Code here
+        int height = heightOfTree(root);
+        if(height == -1)
+            return false;
+        return true;
+    }</code></pre>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/db1dcb66bac0a1f7074dbc13818d3b2c"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_db1dcb66bac0a1f7074dbc13818d3b2c" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_db1dcb66bac0a1f7074dbc13818d3b2c"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/shalusingh0916/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">shalusingh0916</a><span class="text-black-50 ml-2 timeStyle">3 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>time complexity is O(N^2)</p>
+<p>class Solution{</p>
+<p>&nbsp; &nbsp; private:</p>
+<p>&nbsp; &nbsp; int height(Node *root){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int hleft=height(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int hright=height(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int ans=max(hleft,hright)+1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;{ return true;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;bool left=isBalanced(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;bool right=isBalanced(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;bool diff= abs (height(root-&gt;right)-height(root-&gt;left))&lt;=1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;if(left &amp;&amp; right&amp;&amp; diff){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;else</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;return false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/cbae101340c937de0e7e7ab9e5d4389e"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_cbae101340c937de0e7e7ab9e5d4389e" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_cbae101340c937de0e7e7ab9e5d4389e"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/sricharan0871/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">sricharan0871</a><span class="text-black-50 ml-2 timeStyle">4 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><pre class="language-python"><code>class Tree
+{
+    
+    //Function to check whether a binary tree is balanced or not.
+    boolean isBalanced(Node root)
+    {
+        if(root==null){
+            return true;
+        }
+	// Your code here
+	    if(Math.abs(t(root.left)-t(root.right))&lt;=1 &amp;&amp; isBalanced(root.left) &amp;&amp; isBalanced(root.right)){
+	        return true;
+	    }
+	    return false;
+    }
+    int t(Node r){
+        if(r==null){
+            return 1;
+        }
+        return 1+Math.max(t(r.left),t(r.right));
+    }
+}</code></pre>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/1ffe715eb2d0bbae358e2dd2b999febd"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_1ffe715eb2d0bbae358e2dd2b999febd" role="button" aria-expanded="false" aria-controls="replies">Show 1 Replies</a><div class="collapse" id="threads_comment_1ffe715eb2d0bbae358e2dd2b999febd"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/sv094865/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">sv094865</a><span class="text-black-50 ml-2 timeStyle">4 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>class Solution{</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; pair&lt;bool,int&gt; height(Node* root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root == NULL)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;p;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.first = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p.second = 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return p;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;left = height(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;right = height(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pair&lt;bool,int&gt;ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(left.first &amp;&amp; right.first &amp;&amp; abs(left.second-right.second)&lt;=1)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans.first = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans.second = max(left.second,right.second)+1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.first = false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.second = max(left.second,right.second)+1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return ans;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;final_ans = height(root);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return final_ans.first;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/785c2e3e481893513233d8638a278740"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_785c2e3e481893513233d8638a278740" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_785c2e3e481893513233d8638a278740"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+1</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/divyagaygol2002/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">divyagaygol2002</a><span class="text-black-50 ml-2 timeStyle">4 weeks ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>class Solution{</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; int ht(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL) return 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int lh=ht(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int rh=ht(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return max(lh,rh)+1;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL) return true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root-&gt;left)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(isBalanced(root-&gt;left)==0) return 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;if(root-&gt;right) if(isBalanced(root-&gt;right)==0) return 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int h1=ht(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int h2=ht(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(abs(h2-h1)&lt;=1) return 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return 0;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/e97531676d933df4c812c8b932dd851f"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_e97531676d933df4c812c8b932dd851f" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_e97531676d933df4c812c8b932dd851f"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+6</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/chtejaswi2002/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">chtejaswi2002</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><h3>🚩 PYTHON CODE</h3>
+<p>Upvote kardo bhai!</p>
+<pre class="language-python"><code>class Solution:
+    flag=1
+    # Function to calculate height of tree
+    def get_height(self,root):
+        if not root: return 0
+        lh=self.get_height(root.left)
+        rh=self.get_height(root.right)
+        if abs(rh-lh)&gt;1: 
+            self.flag=0
+        return max(lh,rh)+1
+        
+    def isBalanced(self,root):
+        self.get_height(root)
+        return self.flag</code></pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/8bb22440e15c2bedd3bffbcddc2efe24"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_8bb22440e15c2bedd3bffbcddc2efe24" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_8bb22440e15c2bedd3bffbcddc2efe24"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+1</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/nitspj5b0/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">nitspj5b0</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>class Solution{</p>
+<p>&nbsp; &nbsp; pair&lt;bool,int&gt;bal(Node* root){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;p = make_pair(true,0);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return p;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt; left = bal(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;right = bal(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool leftAns = left.first;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool rightAns = right.first;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool diff = abs(left.second - right.second) &lt;= 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;bool,int&gt;ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ans.second = max(left.second,right.second) +1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(leftAns &amp;&amp; rightAns &amp;&amp;diff) ans.first = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else ans.first = false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return&nbsp; ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return bal(root).first;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/2093a5a5152b6d7ff1ae343e5bcdb0d9"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_2093a5a5152b6d7ff1ae343e5bcdb0d9" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_2093a5a5152b6d7ff1ae343e5bcdb0d9"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>+2</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/arpitkatiyar09197/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">arpitkatiyar09197</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p><strong>SOLUTION&nbsp; IN&nbsp; JAVA&nbsp;</strong></p>
+<pre class="language-java"><code>class Tree
+{
+    
+    //Function to check whether a binary tree is balanced or not.
+
+    boolean flag=true;
+    boolean isBalanced(Node root)
+    {
+	// Your code here
+	    if(root==null)
+	    return true; 
+	    
+	    height(root);
+	    return flag;
+    }
+    
+    public int height(Node root)
+    {
+        if(root==null) return 0;
+        
+	   int left = height(root.left);
+	   int right=  height(root.right);
+	     
+	     int diff=Math.abs(left-right);
+	     if(diff&gt;1)
+	   {
+	       flag=false;
+	   }
+	   
+	   return Math.max(left,right)+1;
+    }
+}
+
+</code></pre>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/4ef70102c9b7809d47f4812b828ef0c0"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_4ef70102c9b7809d47f4812b828ef0c0" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_4ef70102c9b7809d47f4812b828ef0c0"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/raghu_veer/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">raghu_veer</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>Easy C++ Solution ..&nbsp;</p>
+<p>TC --&gt; O(N)</p>
+<p>SC --&gt; O(Height)</p>
+<p>class Solution{</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; pair&lt;int,bool&gt; bal(Node* root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root == NULL)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pair&lt;int,bool&gt; temp = make_pair(0,true);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return temp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;int,bool&gt; left = bal(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pair&lt;int,bool&gt; right = bal(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //this chunk of code is to test the height condition&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int heightCheck =&nbsp; abs(left.first - right.first);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool con1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(heightCheck &lt; 2)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con1 = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con1 = false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //this chunk of code id to test the balanced subtree condition</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool con2;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(left.second &amp;&amp; right.second)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con2 = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; con2 = false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool condition;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(con1 &amp;&amp; con2)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; condition = true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; condition = false;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //this chunk of code is to update the height</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; int height = max(left.first,right.first) + 1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;//updating the pair</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pair&lt;int,bool&gt; answer;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; answer.first = height;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; answer.second = condition;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;return answer;&nbsp;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return bal(root).second;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p>
+<p>&nbsp;</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/0965d46aa9879805035fcafa86a5d974"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_0965d46aa9879805035fcafa86a5d974" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_0965d46aa9879805035fcafa86a5d974"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/utkarshyadav544/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">utkarshyadav544</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p>class Solution{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; private:</p>
+<p>&nbsp; &nbsp; int ht(Node * root){</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL)return 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return max(ht(root-&gt;left),ht(root-&gt;right))+1;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; public:</p>
+<p>&nbsp; &nbsp; //Function to check whether a binary tree is balanced or not.</p>
+<p>&nbsp; &nbsp; bool isBalanced(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; Your Code here</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(root==NULL)return true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool a=isBalanced(root-&gt;left);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool b=isBalanced(root-&gt;right);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; bool c=abs(ht(root-&gt;left)-ht(root-&gt;right))&lt;=1;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if(a and b and c)return true;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else return false;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/d7ceeb2fbd11c3d720817d924f509522"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_d7ceeb2fbd11c3d720817d924f509522" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_d7ceeb2fbd11c3d720817d924f509522"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div><div class="row ml-0 mr-0 mt-4 mb-2 w-100"><div class="col-2  col-xs-custom-1 text-center vote-section"><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button><p class="text-success mb-0 mt-0 sofia-pro"><small>0</small></p><button class="btn vote-button rounded-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14 text-muted" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></button><p class="nestedStructure"></p></div><div class=" col-10 col-xs-custom-11"><div style="display: none;"><section><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-v" class="svg-inline--fa fa-ellipsis-v fa-w-6 mt-3 text-muted mr-3 float-right dropdown-toggle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" type="button" id="adminOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path></svg><div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminOptions"><button class="btn btn-link dropdown-item text-secondary sofia-pro"><img alt="Icon" class="flag-icon" src="./Group5019-1629270879.svg"> Report</button></div></section></div><p class="text-dark text-dark sofia-pro headingStyle d-flex align-items-center"><a href="https://auth.geeksforgeeks.org/user/taqueeagha55/practice/" target="_blank" rel="noreferrer" class="text-secondary text-decoration-none sofia-pro   my-auto">taqueeagha55</a><span class="text-black-50 ml-2 timeStyle">1 month ago</span></p><div class="comment-body mt-2 overflow-hidden"><div class="overflow-hidden commentStyle ck-content urw-din"><p><a title="Balanced tree" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/nt%20height(Node%20*root)%7B%20%20%20%20%20%20%20%20%20if(root==NULL)%7B%20%20%20%20%20%20%20%20%20%20%20%20%20return%20NULL;%20%20%20%20%20%20%20%20%20%7D%20%20%20%20%20%20%20%20%20int%20leftheight=height(root-%3Eleft);%20%20%20%20%20%20%20%20%20int%20rightheight=height(root-%3Eright);%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20max(leftheight,rightheight)+1;%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20%20%20%20%20bool%20isBalanced(Node%20*root)%20%20%20%20%20%7B%20%20%20%20%20%20%20%20%20/%20%20Your%20Code%20here%20%20%20%20%20%20%20%20%20if(root==NULL)%7B%20%20%20%20%20%20%20%20%20%20%20%20%20return%20true;%20%20%20%20%20%20%20%20%20%7D%20%20%20%20%20%20%20%20%20bool%20leftpart=isBalanced(root-%3Eleft);%20%20%20%20%20%20%20%20%20bool%20rightpart=isBalanced(root-%3Eright);%20%20%20%20%20%20%20%20%20bool%20diff=abs(height(root-%3Eleft)-height(root-%3Eright))%3C=1;%20%20%20%20%20%20%20%20%20if(left%20&amp;&amp;%20right%20&amp;&amp;%20diff)%7B%20%20%20%20%20%20%20%20%20%20%20%20%20return%20true;%20%20%20%20%20%20%20%20%20%7D%20%20%20%20%20%20%20%20%20else%7B%20%20%20%20%20%20%20%20%20%20%20%20%20return%20false;%20%20%20%20%20%20%20%20%20%7D%20%20%20%20%20%7D" target="_blank" rel="noopener">nt height(Node *root){ if(root==NULL){ return NULL; } int leftheight=height(root-&gt;left); int rightheight=height(root-&gt;right); return max(leftheight,rightheight)+1; } bool isBalanced(Node *root) { // Your Code here if(root==NULL){ return true; } bool leftpart=isBalanced(root-&gt;left); bool rightpart=isBalanced(root-&gt;right); bool diff=abs(height(root-&gt;left)-height(root-&gt;right))&lt;=1; if(left &amp;&amp; right &amp;&amp; diff){ return true; } else{ return false; } }</a></p></div><div><section class="mt-2"><div><span class="text-secondary pl-0 sofia-pro btn btn-light btn-sm" style="cursor: pointer;">Reply <img class="reply-button-icon" alt="Loading..." src="./Group4874-1629269363.svg"></span><a target="_blank" class="text-secondary pl-0 mb-0 pb-0 sofia-pro btn btn-light btn-sm" href="https://discuss.geeksforgeeks.org/comment/a8413948577b1a198601e7a4accd029d"><span class="pb-0 pr-1 sofia-pro">Open Externally</span><img class="pb-1 external-link-icon" alt="" src="./external_link-1629374313.svg"></a></div></section></div></div><a type="button" class="text-success reply-button sofia-pro d-none" data-toggle="collapse" href="https://discuss.geeksforgeeks.org/discuss/prob700166/Check%20for%20Balanced%20Tree%20%7C%20Practice%20%7C%20GeeksforGeeks%20/practice/?rel=https%3A%2F%2Fpractice.geeksforgeeks.org%2Fproblems%2Fcheck-for-balanced-tree%2F1&amp;mode=light#threads_comment_a8413948577b1a198601e7a4accd029d" role="button" aria-expanded="false" aria-controls="replies">Show 0 Replies</a><div class="collapse" id="threads_comment_a8413948577b1a198601e7a4accd029d"><section class="loader"><div class="alignLoader"><div class="spinner-border" role="status"></div><span class="text-secondary ml-1">Loading...</span></div></section></div></div></div></div><div class="d-flex justify-content-center mb-3 mt-2"><button class="btn btn-light sofia-pro font-weight-bold">Load More Comments</button></div></div><button id="back-to-top" class="btn back-to-top d-none"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up fa-w-14 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button></section></section></div></div><script>!function(e){function t(t){for(var n,o,c=t[0],i=t[1],f=t[2],l=0,p=[];l<c.length;l++)o=c[l],Object.prototype.hasOwnProperty.call(a,o)&&a[o]&&p.push(a[o][0]),a[o]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(s&&s(t);p.length;)p.shift()();return u.push.apply(u,f||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,o=1;o<r.length;o++){var i=r[o];0!==a[i]&&(n=!1)}n&&(u.splice(t--,1),e=c(c.s=r[0]))}return e}var n={},o={4:0},a={4:0},u=[];function c(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,c),r.l=!0,r.exports}c.e=function(e){var t=[];o[e]?t.push(o[e]):0!==o[e]&&{0:1,1:1,6:1,7:1,8:1}[e]&&t.push(o[e]=new Promise((function(t,r){for(var n="static/css/"+({}[e]||e)+"."+{0:"f4c56af9",1:"bf61578f",2:"31d6cfe0",6:"b1d4181e",7:"23906677",8:"9b15ba54",9:"31d6cfe0",10:"31d6cfe0"}[e]+".chunk.css",a=c.p+n,u=document.getElementsByTagName("link"),i=0;i<u.length;i++){var f=(s=u[i]).getAttribute("data-href")||s.getAttribute("href");if("stylesheet"===s.rel&&(f===n||f===a))return t()}var l=document.getElementsByTagName("style");for(i=0;i<l.length;i++){var s;if((f=(s=l[i]).getAttribute("data-href"))===n||f===a)return t()}var p=document.createElement("link");p.rel="stylesheet",p.type="text/css",p.onload=t,p.onerror=function(t){var n=t&&t.target&&t.target.src||a,u=new Error("Loading CSS chunk "+e+" failed.\n("+n+")");u.code="CSS_CHUNK_LOAD_FAILED",u.request=n,delete o[e],p.parentNode.removeChild(p),r(u)},p.href=a,document.getElementsByTagName("head")[0].appendChild(p)})).then((function(){o[e]=0})));var r=a[e];if(0!==r)if(r)t.push(r[2]);else{var n=new Promise((function(t,n){r=a[e]=[t,n]}));t.push(r[2]=n);var u,i=document.createElement("script");i.charset="utf-8",i.timeout=120,c.nc&&i.setAttribute("nonce",c.nc),i.src=function(e){return c.p+"static/js/"+({}[e]||e)+"."+{0:"911b0286",1:"52154e6e",2:"b54af5a7",6:"753b22bf",7:"1766ba51",8:"1c2c3879",9:"1e9abe1f",10:"f620fc1f"}[e]+".chunk.js"}(e);var f=new Error;u=function(t){i.onerror=i.onload=null,clearTimeout(l);var r=a[e];if(0!==r){if(r){var n=t&&("load"===t.type?"missing":t.type),o=t&&t.target&&t.target.src;f.message="Loading chunk "+e+" failed.\n("+n+": "+o+")",f.name="ChunkLoadError",f.type=n,f.request=o,r[1](f)}a[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:i})}),12e4);i.onerror=i.onload=u,document.head.appendChild(i)}return Promise.all(t)},c.m=e,c.c=n,c.d=function(e,t,r){c.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},c.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},c.t=function(e,t){if(1&t&&(e=c(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(c.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)c.d(r,n,function(t){return e[t]}.bind(null,n));return r},c.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return c.d(t,"a",t),t},c.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},c.p="/",c.oe=function(e){throw console.error(e),e};var i=this.webpackJsonpcomments=this.webpackJsonpcomments||[],f=i.push.bind(i);i.push=t,i=i.slice();for(var l=0;l<i.length;l++)t(i[l]);var s=f;r()}([])</script><script src="./5.98a64ad7.chunk.js.download"></script><script src="./main.4c8a8f1a.chunk.js.download"></script><div style="clear: both; display: block; height: 0px;"></div><div class="tox tox-silver-sink tox-tinymce-aux" style="position: relative;"></div></body></html>

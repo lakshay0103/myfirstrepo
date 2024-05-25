@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width,initial-scaled=1.0">
+
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
+    <title>STRINGS</title>
+    <style>
+        #contain{
+            background-color: aqua;
+        }
+        
+    </style>
+
+    
+
+</head>
+<body>
+    <!-- for below code-----===  >  div>ul>li{item-$}*7 and then enter    -->
+    ><div>
+        <ul>
+            <li>item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-5</li>
+            <li>item-6</li>
+            <li>item-7</li>
+        </ul>
+    </div>
+    <div id="contain"></div>
+
+    <script>
+        var a="this is a string";
+        console.log(a);
+         a="this is a string2"
+        console.log(a);
+
+        let b="declaring 'b' using let it is declared globally a ";
+        console.log(b);
+        {
+            let b="declaring b using let again in the block but we cannot declare it again using var ";
+            console.log(b);
+        }
+        const value=" this neither be changed nor be redeclared and if we try to change the its value then this will show error ";
+        let age=67;
+        if(age>60){
+            console.log("you are an elder");
+        }
+        else{
+            console.log("you are junior");
+        }
+        
+
+        const cups=45;
+        switch (cups) {
+            case 10:
+                console.log("the value of cup is 10")
+                
+                break;
+            case 41:
+                console.log("the value of cup is 41")
+                
+                break;
+            case 45:
+                console.log("the value of cup is 45")
+                
+                break;
+            case 1:
+                console.log("the value of cup is 1")
+                
+                break;
+            case 14:
+                console.log("the value of cup is 14")
+                
+                break;            
+        
+            default:
+                console.log("the value of cup didnt match")
+                break;
+        }
+
+        // array
+        let name=[1,2,3,"vanshika"];
+        let name2= new Array(60,79,8,"zlalit","monika");
+        console.log(name);
+        console.log(name2);
+        console.log(name2[1]);
+        console.log(name2.length);
+        let sortedarray=name2.sort();
+        console.log(sortedarray);
+
+        // insert element at the end
+        name2.push("yash");
+        console.log(name2);
+        let name1=new Array(23);// here 23 is the size of an array
+
+        //obect
+        let employee={
+            name: "vanshika",
+            salary: "250k per month",
+            job: "software  developer",
+            passion: "coding",
+            "husband name": "yash tyagi"
+
+        }
+        console.log(employee.name);
+        console.log(employee['salary']);
+        console.log(employee);
+        console.log(employee.passion);
+        console.log(employee["husband name"])
+
+
+
+        
+ 
+
+    
+
+
+    </script> 
+
+</body>
+</html>
+

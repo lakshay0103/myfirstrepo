@@ -1,0 +1,24 @@
+.redelement{
+    color: black; background-color: hotpink;
+}
+.bgblue{
+    background-color: blue;
+
+
+
+}
+.redwords{
+    color: red;
+}
+
+footer,span{
+    background-color: aqua;
+    color:violet;
+    border-color: black;
+    size: 3cm;
+}
+/* this is css comment */
+/* element selector*/
+p{
+    border-color: chartreuse;
+}
